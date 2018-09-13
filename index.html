@@ -1,67 +1,79 @@
 <!DOCTYPE html>
-<html lang="es">
-   <head>
-      <title>IGMA</title>
-      <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-      <script type="text/javascript" src="js/jquery.js"></script>
-      <script type="text/javascript" src="js/bootstrap.min.js"></script>
-      <meta charset="utf-8">
-      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtt1z99GtrHZt_IcnK-wryNsQ30A112J0" async></script>
-   </head>
-   <body style="background: #F2F2F2"">
-      <div class="container">
-         <div class="row">
-            <div class="col-md-12">
-               <div class="text-center">
-                  <img src="img/index.jpg" style="width: 40%; margin-top: 2em;"/>
-                  <br>
-                  <img src="img/engrane.jpg" style="width: 40%;"/>
-                  <h3>¡Hola, bienvenid@!</h3>
-                  <h3>Nos encontramos en construcción de nuestro sitio para brindarte la mejor atención posible.</h3>
-               </div>
+    <html lang="es">
+    <head>
+        <title>IGMA</title>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="css/styles.css">
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <meta charset="utf-8">
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtt1z99GtrHZt_IcnK-wryNsQ30A112J0" async></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="jumbotron">
+                <div class="col-md-12">
+                    <div class="text-center">
+                        <img src="img/index.jpg" style="width: 40%; margin-top: 2em;" />
+                        <br>
+                        <img src="img/engrane.jpg" style="width: 40%;" />                        
+                    </div>
+                    <div class="pull-left">
+                        <h3>¡Hola, bienvenido!</h3>
+                        <h3>Nos encontramos en construcción de nuestro sitio para brindarte la mejor atención posible.</h3>
+                    </div>
+                </div>                
+                <div class="row">
+                    <div class="col-md-6">
+                        <form action="/action_page.php">
+                            <h2>¡Contáctanos!</h2>
+                            <div class="form-group">
+                                <label for="txtNombre">Nombre:</label>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                    <input type="text" class="form-control" id="txtNombre" placeholder="Juan Ramirez" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="txtEmail">Email:</label>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><b>@</b></span>
+                                    <input type="email" class="form-control" id="txtEmail" placeholder="miemail@dominio.com">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="txtPhone">Teléfono:</label>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
+                                    <input type="number" class="form-control" id="txtPhone" placeholder="553698545">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="txtMensaje">Escribenos un mensaje:</label>
+                                <textarea type="text" class="form-control" id="txtMensaje" placeholder="Mensaje....." style="width: 100%; resize: none;" rows="4"></textarea>
+                            </div>
+                            <div class="pull-right">
+                                <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-send" style="margin-right: 1em;"></span>Enviar</button>
+                            </div>
+                        </form>
+                        <a id="btnSendMail" class="hidden" style="margin-top: 1.8em;">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="pull-right">
+                            <a href="#" id="lblMaps" target="_self">
+                                <img src="img/mapa_google.png" width="80%" style="margin-top: 6.4em;" class="img-responsive" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
-         </div>
-         <div class="row">
-            <div class="col-md-6">
-               <form action="/action_page.php">
-                  <h2>¡Contáctanos!</h2>
-                  <div class="form-group">
-                     <label for="txtNombre">Mi nombre:</label>
-                     <input type="text" class="form-control" id="txtNombre" placeholder="Juan Ramirez"  />
-                  </div>
-                  <div class="form-group">
-                     <label for="txtEmail">Email:</label>
-                     <input type="email" class="form-control" id="txtEmail" placeholder="miemail@dominio.com">
-                  </div>
-                  <div class="form-group">
-                     <label for="txtPhone">Mi teléfono:</label>
-                     <input type="number" class="form-control" id="txtPhone" placeholder="553698545">
-                  </div>
-                  <div class="form-group">
-                     <label for="txtMensaje">Escribe un mensaje:</label>
-                     <textarea type="text" class="form-control" id="txtMensaje" placeholder="Mensaje....." style="width: 100%; resize: none;" rows="4"></textarea>
-                  </div>
-                  <div class="pull-right">
-                     <button type="submit" class="btn btn-primary"> <span class="glyphicon glyphicon-send" style="margin-right: 1em;"></span>Enviar</button>
-                  </div>
-               </form>
-               <a id="btnSendMail" class="hidden" style="margin-top: 1.8em;" > 
-            </div>
-            <div class="col-md-6">
-               <div class="pull-right">
-                  <a href="#" id="lblMaps" target="_self">
-                  <img src="img/mapa_google.png" width="80%" style="margin-top: 6.4em;" class="img-responsive" />
-               </a>
-               </div>
-            </div>
-         </div>
-      </div>
-   </body>
-   <script type="text/javascript" src="js/Mail.js"></script>
-   <script>
+        </div>
+    </body>
+    <script type="text/javascript" src="js/Mail.js"></script>
+    <script>
       GestorMail.Init();
-   </script>
-   <script>
+    </script>
+    <script>
     $('#lblMaps').on({
         "click": function (event) {
 
@@ -74,8 +86,8 @@
 
         }
     });
-</script>
-   <script>
+    </script>
+    <script>
       $(document).ready(function() {
          $("#submit").click(function() {
             var name = $("#name").val();
@@ -94,12 +106,12 @@
             contact1: contact
          }, function(data) {
          $("#returnmessage").append(data);
-         if (data == "Your Query has been received, We will contact you soon.") {
+         if (data == "Gracias, tu mensaje ha sido envíado correctamente, nos pondremos en contacto pronto.") {
             $("#form")[0].reset();
          }
          });
          }
       });
    });
-   </script>
-</html>
+    </script>
+    </html>
