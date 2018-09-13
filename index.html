@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+   <head>
+      <title>IGMA</title>
+      <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+      <script type="text/javascript" src="js/jquery.js"></script>
+      <script type="text/javascript" src="js/bootstrap.min.js"></script>
+      <meta charset="utf-8">
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtt1z99GtrHZt_IcnK-wryNsQ30A112J0" async></script>
+   </head>
+   <body style="background: #F2F2F2"">
+      <div class="container">
+         <div class="row">
+            <div class="col-md-12">
+               <div class="text-center">
+                  <img src="img/index.jpg" style="width: 40%; margin-top: 2em;"/>
+                  <br>
+                  <img src="img/engrane.jpg" style="width: 40%;"/>
+                  <h3>¡Hola, bienvenido!</h3>
+                  <h3>Nos encontramos en construcción de nuestro sitio para brindarte la mejor atención posible.</h3>
+               </div>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-md-6">
+               <form action="/action_page.php">
+                  <h2>¡Contáctanos!</h2>
+                  <div class="form-group">
+                     <label for="txtNombre">Mi nombre:</label>
+                     <input type="text" class="form-control" id="txtNombre" placeholder="Juan Ramirez"  />
+                  </div>
+                  <div class="form-group">
+                     <label for="txtEmail">Email:</label>
+                     <input type="email" class="form-control" id="txtEmail" placeholder="miemail@dominio.com">
+                  </div>
+                  <div class="form-group">
+                     <label for="txtPhone">Mi teléfono:</label>
+                     <input type="number" class="form-control" id="txtPhone" placeholder="553698545">
+                  </div>
+                  <div class="form-group">
+                     <label for="txtMensaje">Escribe un mensaje:</label>
+                     <textarea type="text" class="form-control" id="txtMensaje" placeholder="Mensaje....." style="width: 100%; resize: none;" rows="4"></textarea>
+                  </div>
+                  <div class="pull-right">
+                     <button type="submit" class="btn btn-primary"> <span class="glyphicon glyphicon-send" style="margin-right: 1em;"></span>Enviar</button>
+                  </div>
+               </form>
+               <a id="btnSendMail" class="hidden" style="margin-top: 1.8em;" > 
+            </div>
+            <div class="col-md-6">
+               <div class="pull-right">
+                  <a href="#" id="lblMaps" target="_self">
+                  <img src="img/mapa_google.png" width="80%" style="margin-top: 6.4em;" class="img-responsive" />
+               </a>
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+   <script type="text/javascript" src="js/Mail.js"></script>
+   <script>
+      GestorMail.Init();
+   </script>
+   <script>
+    $('#lblMaps').on({
+        "click": function (event) {
+
+            var w = screen.width / 5;
+            var h = screen.height / 5;
+            var width = w * 3;
+            var height = h * 3;
+            var config = 'width=' + width + ',height=' + height + 'left=100,top=50,toolbar=yes';
+            window.open('https://www.google.com.mx/maps/place/Red+Ring+M%C3%A9xico/@19.2945631,-99.1696399,15z/data=!4m5!3m4!1s0x0:0x466c8a1866477ed9!8m2!3d19.2945631!4d-99.1696399', '', config);
+
+        }
+    });
+</script>
+   <script>
+      $(document).ready(function() {
+         $("#submit").click(function() {
+            var name = $("#name").val();
+            var email = $("#email").val();
+            var message = $("#message").val();
+            var contact = $("#contact").val();
+         $("#returnmessage").empty();
+         if (name == '' || email == '' || contact == '') {
+            alert("Please Fill Required Fields");
+         } 
+         else {
+            $.post("contact_form.php", {
+            name1: name,
+            email1: email,
+            message1: message,
+            contact1: contact
+         }, function(data) {
+         $("#returnmessage").append(data);
+         if (data == "Your Query has been received, We will contact you soon.") {
+            $("#form")[0].reset();
+         }
+         });
+         }
+      });
+   });
+   </script>
+</html>
